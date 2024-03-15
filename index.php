@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Quejas</title>
+    <title>Formulario de incidentes</title>
     <link rel="stylesheet" href="index.css">
     <link rel="icon" href="images/logovertical.jpg" type="image/png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -29,13 +29,13 @@
 
     <label for="criticidad">Criticidad:</label>
     <i class='bx bxs-error'></i>
-    <select name="criticidad" required>
-        <option value="" selected disabled>- Seleccionar -</option>
-        <option value="alta">Alta</option>
-        <option value="normal">Normal</option>
-        <option value="baja">Baja</option>
-        <option value="critica">Crítica</option>
-    </select><br>
+        <select name="criticidad" required>
+            <option value="" selected disabled>- Seleccionar -</option>
+            <option value="alta">Alta</option>
+            <option value="normal">Normal</option>
+            <option value="baja">Baja</option>
+            <option value="critica">Crítica</option>
+        </select><br>
 
     <!-- Botón para adjuntar archivo -->
     <label for="adjunto">Adjuntar archivo:</label>

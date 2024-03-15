@@ -1,3 +1,60 @@
+<?php
+// Conexión a la base de datos
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "solicitudes";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar la conexión
+if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
+}
+
+// Consulta SQL para contar las quejas por criticidad
+$sql = "SELECT nombre, criticidad, COUNT(*) as cantidad FROM quejas GROUP BY nombre, criticidad";
+$result = $conn->query($sql);
+
+// Arreglos para almacenar los datos de la gráfica
+$labels = [];
+$data = [];
+$backgroundColors = [];
+
+// Verificar si se encontraron resultados
+if ($result->num_rows > 0) {
+    // Mostrar los datos en la tabla
+    while ($row = $result->fetch_assoc()) {
+        // Almacenar los datos en los arreglos
+        $labels[] = ucfirst($row["nombre"]); // Convertir la primera letra en mayúscula
+        $data[] = $row["cantidad"];
+        
+        // Asignar colores dependiendo de la criticidad
+        switch(strtolower($row["criticidad"])) {
+            case 'alta':
+                $backgroundColors[] = 'rgba(255, 99, 132, 0.2)';
+                break;
+            case 'normal':
+                $backgroundColors[] = 'rgba(54, 162, 235, 0.2)';
+                break;
+            case 'baja':
+                $backgroundColors[] = 'rgba(255, 206, 86, 0.2)';
+                break;
+            case 'critica':
+                $backgroundColors[] = 'rgba(75, 192, 192, 0.2)';
+                break;
+            default:
+                $backgroundColors[] = 'rgba(0, 0, 0, 0.2)';
+        }
+    }
+} else {
+    echo "No hay datos disponibles para mostrar.";
+}
+
+// Cerrar la conexión
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,20 +70,28 @@
     <!-- Contenedor de la gráfica -->
     <div class="graficas-container">
         <h2>Gráfica de Criticidad</h2>
+        <a href="soluciones.php" class="graficas-button">Ver Soluciones</a>
         <!-- Canvas donde se dibujará la gráfica -->
         <canvas id="graficaCriticidad"></canvas>
+        <!-- Leyenda de criticidad -->
+        <div class="leyenda">
+            <span class="criticidad-alta">Alta</span>
+            <span class="criticidad-normal">Normal</span>
+            <span class="criticidad-baja">Baja</span>
+            <span class="criticidad-critica">Crítica</span>
+        </div>
     </div>
 
     <script>
-    // Datos de ejemplo para la gráfica
+    // Datos de la gráfica obtenidos desde PHP
     var datos = {
-        labels: ['Baja', 'Normal', 'Alta'],
+        labels: <?php echo json_encode($labels); ?>,
         datasets: [{
             label: 'Criticidad de Quejas',
-            backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
+            backgroundColor: <?php echo json_encode($backgroundColors); ?>,
+            borderColor: 'rgba(0, 0, 0, 1)',
             borderWidth: 1,
-            data: [12, 19, 3] // Aquí deberías obtener los datos reales de tu base de datos
+            data: <?php echo json_encode($data); ?>
         }]
     };
 
