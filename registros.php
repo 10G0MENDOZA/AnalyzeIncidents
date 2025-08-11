@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registros de Soluciones</title>
-    <link rel="icon" href="images/Logovertical.jpg">
+    <link rel="icon" href="img/Logo_Avance.png">
     <link rel="stylesheet" href="css/registros.css">
 </head>
 <body>

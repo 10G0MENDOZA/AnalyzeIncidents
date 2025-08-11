@@ -62,7 +62,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gráficas</title>
     <link rel="stylesheet" href="graficas.css">
-    <link rel="icon" href="images/Logovertical.jpg">
+    <link rel="icon" href="img/Logo_Avance.png">
     <!-- Incluir la librería Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>

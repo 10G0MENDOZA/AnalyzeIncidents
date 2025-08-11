@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Quejas</title>
     <link rel="stylesheet" href="css/quejas.css">
-    <link rel="icon" href="images/logovertical.jpg" type="image/png">
+    <link rel="icon" href="img/Logo_Avance.png" type="image/png">
 </head>
 <body>
     <div class="quejas-container">

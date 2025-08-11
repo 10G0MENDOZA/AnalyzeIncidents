@@ -4,13 +4,16 @@ body {
     background-size: cover;
     font-family: Arial, sans-serif;
     display: flex;
+    background: linear-gradient(159deg, #fff, #009688);
     justify-content: center;
-    align-items: flex-start; /* Ajustar al inicio verticalmente */
+    align-items: flex-start;
+    /* Ajustar al inicio verticalmente */
     min-height: 100vh;
 }
 
 form {
-    margin-top: 50px; /* Agregar un espacio superior para dejar espacio para el título u otros elementos */
+    margin-top: 50px;
+    /* Agregar un espacio superior para dejar espacio para el título u otros elementos */
     width: 80%;
     max-width: 400px;
     padding: 20px;

@@ -5,7 +5,7 @@
     <title>Administrador</title>
     <link rel="stylesheet" href="Administrador-style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" href="images/Logovertical.jpg" type="image/jpg">
+    <link rel="icon" href="img/Logo_Avance.png" type="image/jpg">
     <link rel="stylesheet" href="css/administrador.css">
 </head>
 <body>
