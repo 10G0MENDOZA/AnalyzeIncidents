@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Ajustar al inicio verticalmente */
+    min-height: 100vh;
+}
+
+form {
+    margin-top: 50px; /* Agregar un espacio superior para dejar espacio para el título u otros elementos */
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    background: rgba(18, 184, 170, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+label {
+    margin-bottom: 8px;
+    display: block;
+    color: #fff;
+}
+
+input[type="text"],
+select,
+textarea {
+    width: calc(100% - 16px);
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+input[type="file"] {
+    width: calc(100% - 16px);
+    margin-bottom: 16px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}

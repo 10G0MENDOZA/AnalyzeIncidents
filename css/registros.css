@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.registros-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.registro {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.registro h3 {
+    color: #333;
+    margin-top: 0;
+}
+
+.problema {
+    margin-top: 10px;
+}
+
+.problema p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+.problema p strong {
+    font-weight: bold;
+}
+
+p.no-records {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}

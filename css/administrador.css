@@ -1,0 +1,50 @@
+.options {
+    display: none;
+    position: absolute;
+    top: 40px;
+    /* Ajusta la posición vertical según tu diseño */
+    left: 10px;
+    /* Ajusta la posición horizontal según tu diseño */
+    background: #fff;
+    border: 1px solid #04CF9E;
+    padding: 10px;
+    z-index: 1;
+}
+
+.options a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #04CF9E;
+    /* Corregido el color aquí */
+}
+
+.options a:hover {
+    background-color: rgba(18, 184, 170, 0.8);
+    color: #fff;
+}
+
+/* Estilo para el botón de opciones */
+#show-options-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: rgba(18, 184, 170, 0.8);
+    color: #fff;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+body {
+    background-image: url(images/FONDO-DE-PANTALLA-PC_1\ -\ copia\ \(1\).png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Establece la altura del cuerpo al 100% del viewport */
+    margin: 0; /* Elimina el margen predeterminado del cuerpo */
+    padding: 0; /* Elimina el relleno predeterminado del cuerpo */
+    text-align: center;
+}

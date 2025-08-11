@@ -1,0 +1,63 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.graficas-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    border-radius: 5px;
+}
+
+/* Leyenda de criticidad */
+.leyenda {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.criticidad-alta {
+    color: rgba(255, 99, 132, 1);
+}
+
+.criticidad-normal {
+    color: rgba(54, 162, 235, 1);
+}
+
+.criticidad-baja {
+    color: rgba(255, 206, 86, 1);
+}
+
+.criticidad-critica {
+    color: rgba(75, 192, 192, 1);
+}
+.quejas-container {
+    position: relative;
+}
+.graficas-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #04CF9E;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
