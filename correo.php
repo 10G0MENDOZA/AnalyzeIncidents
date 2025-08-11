@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startups_erros', 1);
+error_reporting(E_ALL);
+
 // Cargar las clases de PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -9,10 +13,10 @@ require 'PHPMailer/SMTP.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Datos del remitente (tú)
-    $correo_remitente = 'diegomendoza2609@gmail.com'; 
+    $correo_remitente = 'diegomendoza2609@gmail.com';
 
     // Dirección de correo a la que se enviará la queja
-    $correo_destinatario = 'auxsoporte@avancelegal.com.co';
+    $correo_destinatario = 'diegomendoza2609@gmail.com';
 
     // Verifica si se han enviado los datos del formulario
     if (isset($_POST["nombre"]) && isset($_POST["cartera"]) && isset($_POST["queja"]) && isset($_POST["criticidad"])) {
@@ -77,65 +81,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </body>
     </html>
     ";
+$mail = new PHPMailer(true);
 
-        // Configuración de PHPMailer
-        $mail = new PHPMailer(true);
+try {
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'diegomendoza2609@gmail.com';
+   $mail->Password = 'ulro qpzx vohx xktu';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 587;
 
-        try {
-            // Configura el servidor de correo (para Gmail)
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'diegomendoza2609@gmail.com';
-            $mail->Password = 'ulro qpzx vohx xktu';
-            $mail->SMTPSecure = 'tls';
-            $mail->Port = 587;
+    $mail->setFrom($correo_remitente, 'Sistema de Quejas');
+    $mail->addAddress($correo_destinatario);
+    $mail->Subject = 'Nueva queja registrada';
+    $mail->isHTML(true);
+    $mail->Body = $mensaje;
 
-            // Detalles del correo
-            $mail->setFrom($correo_remitente);
-            $mail->addAddress($correo_destinatario);
-            $mail->Subject = 'Nueva queja registrada';
-            $mail->isHTML(true);
-            $mail->Body = $mensaje;
+    if (!empty($ruta_temporal)) {
+        $mail->addAttachment($ruta_temporal, $nombre_archivo);
+    }
 
-            // Adjuntar el archivo
-            $mail->addAttachment($ruta_temporal, $nombre_archivo);
+    if (!$mail->send()) {
+        die("Error al mandar el correo: " . $mail->ErrorInfo);
+    }
 
-            // Envía el correo electrónico
-            $mail->send();
+    // Guardar en BD después de que el correo se envía
+    require_once("bd.php");
+    $sql = "INSERT INTO quejas (nombre, cartera, inconveniente, criticidad, fecha_creacion)
+            VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conexion->prepare($sql);
+    $stmt->bind_param("sssss", $nombre, $cartera, $queja, $criticidad, $fecha_creacion);
+    $stmt->execute();
+    $stmt->close();
+    $conexion->close();
 
-            require_once("bd.php");
+    header("Location: exito.php");
+    exit();
 
-            // Preparar la consulta
-            $sql = "INSERT INTO quejas (nombre, cartera, inconveniente, criticidad, fecha_creacion)
-        VALUES (?, ?, ?, ?, ?)";
-
-            $stmt = $conexion->prepare($sql);
-
-            if (!$stmt) {
-                die("Error en prepare(): " . $conexion->error);
-            }
-
-            // Enlazar parámetros
-            $stmt->bind_param("sssss", $nombre, $cartera, $queja, $criticidad, $fecha_creacion);
-
-            // Ejecutar
-            if ($stmt->execute()) {
-                echo "La queja se registró correctamente en la base de datos.";
-            } else {
-                echo "Error al registrar la queja: " . $stmt->error;
-            }
-
-            // Cerrar
-            $stmt->close();
-            $conexion->close();
-
-            // Redirigir a éxito
-            header("Location: exito.php");
-            exit();
-        } catch (Exception $e) {
-            echo "Ocurrió un error: " . $e->getMessage();
-        }
+} catch (Exception $e) {
+    echo "Error al enviar correo: " . $mail->ErrorInfo;
+}
     }
 }
 ?>
