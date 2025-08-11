@@ -9,7 +9,7 @@ require 'PHPMailer/SMTP.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Datos del remitente (tú)
-    $correo_remitente = 'skingperfect@gmail.com'; // Cambia esto a tu dirección de correo
+    $correo_remitente = 'diegomendoza2609@gmail.com'; 
 
     // Dirección de correo a la que se enviará la queja
     $correo_destinatario = 'auxsoporte@avancelegal.com.co';
@@ -86,8 +86,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'skingperfect@gmail.com'; // Cambia esto a tu dirección de correo
-            $mail->Password = 'wzbu htbp hgpu ziko'; // Cambia esto a tu contraseña de Gmail
+            $mail->Username = 'diegomendoza2609@gmail.com';
+            $mail->Password = 'ulro qpzx vohx xktu';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
@@ -104,42 +104,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Envía el correo electrónico
             $mail->send();
 
-            // Insertar los datos de la queja en la base de datos
-            // Reemplaza los valores de conexión y los nombres de los campos según tu configuración
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "solicitudes";
+            require_once("bd.php");
 
-            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Preparar la consulta
+            $sql = "INSERT INTO quejas (nombre, cartera, inconveniente, criticidad, fecha_creacion)
+        VALUES (?, ?, ?, ?, ?)";
 
-            // Verificar la conexión
-            if ($conn->connect_error) {
-                die("Error de conexión: " . $conn->connect_error);
+            $stmt = $conexion->prepare($sql);
+
+            if (!$stmt) {
+                die("Error en prepare(): " . $conexion->error);
             }
 
-            // Preparar la consulta SQL para insertar la queja
-            $sql = "INSERT INTO quejas (nombre, cartera, inconveniente, criticidad, fecha_creacion)
-                    VALUES ('$nombre', '$cartera', '$queja', '$criticidad', '$fecha_creacion')";
+            // Enlazar parámetros
+            $stmt->bind_param("sssss", $nombre, $cartera, $queja, $criticidad, $fecha_creacion);
 
-            // Ejecutar la consulta
-            if ($conn->query($sql) === TRUE) {
+            // Ejecutar
+            if ($stmt->execute()) {
                 echo "La queja se registró correctamente en la base de datos.";
             } else {
-                echo "Error al registrar la queja en la base de datos: " . $conn->error;
+                echo "Error al registrar la queja: " . $stmt->error;
             }
 
-            // Cerrar la conexión
-            $conn->close();
+            // Cerrar
+            $stmt->close();
+            $conexion->close();
 
-            // Redirige a la página de éxito
+            // Redirigir a éxito
             header("Location: exito.php");
             exit();
         } catch (Exception $e) {
-            echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
+            echo "Ocurrió un error: " . $e->getMessage();
         }
-    } else {
-        exit();
     }
 }
 ?>

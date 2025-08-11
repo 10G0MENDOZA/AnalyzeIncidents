@@ -19,8 +19,7 @@
         <label for="cartera">Cartera:</label>
         <i class='bx bxs-bank'></i>
         <select name="cartera" required>
-            <option value="Davivienda">Davivienda</option>
-            <option value="FundacionMujer">Fundación de la Mujer</option>
+            <option value="Propia">Propia</option>
             <option value="Occidente">Occidente</option>
             <option value="Libertador">Libertador</option>
             <option value="Abogados">Abogados</option>
