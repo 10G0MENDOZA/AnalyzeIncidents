@@ -2,7 +2,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: url('images/FONDO-DE-PANTALLA-PC_1 - copia (1).png') no-repeat center 20% fixed;
+    background: url('../img/Logo_Avance.png') no-repeat center center fixed;
+
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -32,7 +33,8 @@ body {
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
-    border-radius: 20px; /* Añadido para bordes redondeados */
+    border-radius: 20px;
+    /* Añadido para bordes redondeados */
     box-sizing: border-box;
     font-size: 16px;
 }
@@ -51,7 +53,8 @@ body {
 
 .login-container input[type="submit"]:hover {
     background-color: #009688;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Añadido efecto de sombra */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* Añadido efecto de sombra */
 }
 
 .login-container a {
