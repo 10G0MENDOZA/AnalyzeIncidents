@@ -3,6 +3,7 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
+
 }
 
 .peticiones-container {
@@ -22,11 +23,14 @@ h2 {
 
 .table-container {
     overflow-x: auto;
+
 }
+
 
 table {
     width: 100%;
     border-collapse: collapse;
+
 }
 
 th,
@@ -54,10 +58,12 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
 /* Estilos para el botón de gráficas */
 .peticiones-container {
     position: relative;
 }
+
 .graficas-button {
     position: absolute;
     top: 20px;

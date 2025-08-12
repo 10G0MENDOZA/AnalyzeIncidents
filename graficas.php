@@ -1,20 +1,9 @@
 <?php
-// Conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "solicitudes";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar la conexión
-if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
-}
+require_once("bd.php");
 
 // Consulta SQL para contar las peticiones por criticidad
 $sql = "SELECT nombre, criticidad, COUNT(*) as cantidad FROM quejas GROUP BY nombre, criticidad";
-$result = $conn->query($sql);
+$result = $conexion->query($sql);
 
 // Arreglos para almacenar los datos de la gráfica
 $labels = [];
@@ -28,9 +17,9 @@ if ($result->num_rows > 0) {
         // Almacenar los datos en los arreglos
         $labels[] = ucfirst($row["nombre"]); // Convertir la primera letra en mayúscula
         $data[] = $row["cantidad"];
-        
+
         // Asignar colores dependiendo de la criticidad
-        switch(strtolower($row["criticidad"])) {
+        switch (strtolower($row["criticidad"])) {
             case 'alta':
                 $backgroundColors[] = 'rgba(255, 99, 132, 0.2)';
                 break;
@@ -52,20 +41,22 @@ if ($result->num_rows > 0) {
 }
 
 // Cerrar la conexión
-$conn->close();
+$conexion->close();
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gráficas</title>
-    <link rel="stylesheet" href="graficas.css">
+    <link rel="stylesheet" href="css/graficas.css">
     <link rel="icon" href="img/Logo_Avance.png">
     <!-- Incluir la librería Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <!-- Contenedor de la gráfica -->
     <div class="graficas-container">
@@ -83,36 +74,37 @@ $conn->close();
     </div>
 
     <script>
-    // Datos de la gráfica obtenidos desde PHP
-    var datos = {
-        labels: <?php echo json_encode($labels); ?>,
-        datasets: [{
-            label: 'Criticidad de peticiones',
-            backgroundColor: <?php echo json_encode($backgroundColors); ?>,
-            borderColor: 'rgba(0, 0, 0, 1)',
-            borderWidth: 1,
-            data: <?php echo json_encode($data); ?>
-        }]
-    };
-
-    // Configuración de la gráfica
-    var opciones = {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
+        // Datos de la gráfica obtenidos desde PHP
+        var datos = {
+            labels: <?php echo json_encode($labels); ?>,
+            datasets: [{
+                label: 'Criticidad de peticiones',
+                backgroundColor: <?php echo json_encode($backgroundColors); ?>,
+                borderColor: 'rgba(0, 0, 0, 1)',
+                borderWidth: 1,
+                data: <?php echo json_encode($data); ?>
             }]
-        }
-    };
+        };
 
-    // Crear la gráfica
-    var ctx = document.getElementById('graficaCriticidad').getContext('2d');
-    var graficaCriticidad = new Chart(ctx, {
-        type: 'bar', // Tipo de gráfica (barras en este caso)
-        data: datos, // Datos de la gráfica
-        options: opciones // Opciones de configuración
-    });
+        // Configuración de la gráfica
+        var opciones = {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        };
+
+        // Crear la gráfica
+        var ctx = document.getElementById('graficaCriticidad').getContext('2d');
+        var graficaCriticidad = new Chart(ctx, {
+            type: 'bar', // Tipo de gráfica (barras en este caso)
+            data: datos, // Datos de la gráfica
+            options: opciones // Opciones de configuración
+        });
     </script>
 </body>
+
 </html>

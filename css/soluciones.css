@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url(images/wave.png);
+   /* background: linear-gradient(159deg, #fff, #009688)!important;*/
 }
 
 .soluciones-container {
@@ -13,10 +13,12 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+
 .error-message {
-            color: red;
-            margin-top: 10px;
-        }
+    color: red;
+    margin-top: 10px;
+}
+
 h2 {
     color: #333;
     text-align: center;
