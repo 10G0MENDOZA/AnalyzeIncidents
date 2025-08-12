@@ -3,7 +3,6 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     background: url('../img/Logo_Avance.png') no-repeat center center fixed;
-
     background-size: cover;
     display: flex;
     justify-content: center;

@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    header('Location: login.php');
+}
+exit();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -15,7 +24,7 @@
             <!-- Opciones ocultas por defecto -->
             <div class="options" id="options">
                 <a href="peticiones.php">Ver incidentes registrados</a>
-                <a href="soluciones.php">Ver Soluciones Registradas</a>
+                <a href="registros.php">Ver Soluciones Registradas</a>
 
             </div>
 

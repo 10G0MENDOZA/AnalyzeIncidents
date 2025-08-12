@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </head>
     <body>
         <div class='mensaje-container'>
-            <h2>Nueva queja registrada</h2>
+            <h2>Nuevo caso de soporte registrado</h2>
             <p><strong>Nombre:</strong> $nombre</p>
             <p><strong>Cartera:</strong> $cartera</p>
             <p><strong>Criticidad:</strong> $criticidad</p>
@@ -94,7 +94,7 @@ try {
 
     $mail->setFrom($correo_remitente, 'Sistema de peticiones');
     $mail->addAddress($correo_destinatario);
-    $mail->Subject = 'Nueva queja registrada';
+    $mail->Subject = 'Nuevo ticket de soporte';
     $mail->isHTML(true);
     $mail->Body = $mensaje;
 

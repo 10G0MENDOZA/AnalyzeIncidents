@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    header('Location: login.php');
+}
+exit();
+
 require_once("bd.php");
 
 // Consulta SQL para contar las peticiones por criticidad
@@ -61,7 +68,7 @@ $conexion->close();
     <!-- Contenedor de la gráfica -->
     <div class="graficas-container">
         <h2>Gráfica de Criticidad</h2>
-        <a href="soluciones.php" class="graficas-button">Ver Soluciones</a>
+        <a href="soluciones.php" class="graficas-button">Ingresar Soluciones</a>
         <!-- Canvas donde se dibujará la gráfica -->
         <canvas id="graficaCriticidad"></canvas>
         <!-- Leyenda de criticidad -->

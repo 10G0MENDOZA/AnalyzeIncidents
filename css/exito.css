@@ -1,24 +1,24 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('images/FONDO-DE-PANTALLA-PC_1\ -\ copia\ \(1\).png') no-repeat center 20% fixed;
+    background: linear-gradient(159deg, #fff, #009688);
     background-size: cover;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Ajustar al inicio verticalmente */
+    align-items: flex-start;
+    /* Ajustar al inicio verticalmente */
     min-height: 100vh;
 }
 
 .mensaje-exito {
-    margin-top: 50px; /* Agregar un espacio superior para dejar espacio para el título u otros elementos */
-    width: 80%;
-    max-width: 400px;
-    padding: 20px;
-    background: rgba(18, 184, 170, 0.8);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background: rgb(84, 36, 214);
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
 }
 
 .mensaje-exito h2 {
@@ -31,14 +31,21 @@ body {
 }
 
 .mensaje-exito a {
-    color: #fff;
+    display: block;
+    width: fit-content;
+    color: white;
+    cursor: pointer;
     text-decoration: none;
-    background-color: #4CAF50;
-    padding: 10px 20px;
+    font-size: 20px;
+    text-align: center;
+    margin: 30px auto;
+    padding: 8px 16px;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    background: rgb(14, 202, 55);
 }
 
+
+
 .mensaje-exito a:hover {
-    background-color: #45a049;
+    color: #550bdd;
 }

@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    header('Location: login.php');
+}
+exit();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +24,7 @@
         require_once("bd.php");
 
         // Consulta SQL para obtener los registros de soluciones
-        $sql = "SELECT nombre, solucion FROM quejas";
+        $sql = "SELECT inconveniente, nombre, solucion FROM quejas";
         $result = $conexion->query($sql);
 
         if ($result === false) {
@@ -29,7 +37,7 @@
                     echo "<div class='registro'>";
                     echo "<h3>" . htmlspecialchars($row["nombre"]) . "</h3>";
                     echo "<div class='problema'>";
-                    echo "<p><strong>Nombre:</strong> " . htmlspecialchars($row["nombre"]) . "</p>";
+                    echo "<p><strong>Inconveniente:</strong> " . htmlspecialchars($row["inconveniente"]) . "</p>";
                     echo "<p><strong>Solución:</strong> " . htmlspecialchars($row["solucion"]) . "</p>";
                     echo "</div>";
                     echo "</div>";
