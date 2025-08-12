@@ -81,47 +81,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </body>
     </html>
     ";
-$mail = new PHPMailer(true);
+        $mail = new PHPMailer(true);
 
-try {
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'diegomendoza2609@gmail.com';
-   $mail->Password = 'ulro qpzx vohx xktu';
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = 587;
+        try {
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'diegomendoza2609@gmail.com';
+            $mail->Password = 'ulro qpzx vohx xktu';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587;
 
-    $mail->setFrom($correo_remitente, 'Sistema de peticiones');
-    $mail->addAddress($correo_destinatario);
-    $mail->Subject = 'Nuevo ticket de soporte';
-    $mail->isHTML(true);
-    $mail->Body = $mensaje;
+            $mail->setFrom($correo_remitente, 'Sistema de peticiones');
+            $mail->addAddress($correo_destinatario);
+            $mail->Subject = 'Nuevo ticket de soporte';
+            $mail->isHTML(true);
+            $mail->Body = $mensaje;
 
-    if (!empty($ruta_temporal)) {
-        $mail->addAttachment($ruta_temporal, $nombre_archivo);
-    }
+            if (!empty($ruta_temporal)) {
+                $mail->addAttachment($ruta_temporal, $nombre_archivo);
+            }
 
-    if (!$mail->send()) {
-        die("Error al mandar el correo: " . $mail->ErrorInfo);
-    }
+            if (!$mail->send()) {
+                die("Error al mandar el correo: " . $mail->ErrorInfo);
+            }
 
-    // Guardar en BD después de que el correo se envía
-    require_once("bd.php");
-    $sql = "INSERT INTO quejas (nombre, cartera, inconveniente, criticidad, fecha_creacion)
+            // Guardar en BD después de que el correo se envía
+           require_once __DIR__ . '/../bd.php';
+
+            $sql = "INSERT INTO quejas (nombre, cartera, inconveniente, criticidad, fecha_creacion)
             VALUES (?, ?, ?, ?, ?)";
-    $stmt = $conexion->prepare($sql);
-    $stmt->bind_param("sssss", $nombre, $cartera, $queja, $criticidad, $fecha_creacion);
-    $stmt->execute();
-    $stmt->close();
-    $conexion->close();
+            $stmt = $conexion->prepare($sql);
+            $stmt->bind_param("sssss", $nombre, $cartera, $queja, $criticidad, $fecha_creacion);
+            $stmt->execute();
+            $stmt->close();
+            $conexion->close();
 
-    header("Location: exito.php");
-    exit();
+            header("Location: exito.php");
+            exit();
 
-} catch (Exception $e) {
-    echo "Error al enviar correo: " . $mail->ErrorInfo;
-}
+        } catch (Exception $e) {
+            echo "Error al enviar correo: " . $mail->ErrorInfo;
+        }
     }
 }
 ?>

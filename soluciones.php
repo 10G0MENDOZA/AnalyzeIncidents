@@ -24,8 +24,9 @@ exit();
         ini_set('display_startup_errors', 1);
         error_reporting(E_ALL);
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+require_once __DIR__ . '/../bd.php';
 
-        require_once("bd.php");
+
 
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if (!empty($_POST["solucion"])) {

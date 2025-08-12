@@ -21,7 +21,9 @@ exit();
     <div class="registros-container">
         <h2>Registros de Soluciones</h2>
         <?php
-        require_once("bd.php");
+    require_once __DIR__ . '/../bd.php';
+
+
 
         // Consulta SQL para obtener los registros de soluciones
         $sql = "SELECT inconveniente, nombre, solucion FROM quejas";

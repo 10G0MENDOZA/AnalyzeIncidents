@@ -6,7 +6,8 @@ if (!isset($_SESSION['usuario'])) {
 }
 exit();
 
-require_once("bd.php");
+require_once __DIR__ . '/../bd.php';
+
 
 // Consulta SQL para contar las peticiones por criticidad
 $sql = "SELECT nombre, criticidad, COUNT(*) as cantidad FROM quejas GROUP BY nombre, criticidad";
