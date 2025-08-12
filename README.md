@@ -15,7 +15,7 @@ Incluye funcionalidades para carga de evidencias (imágenes), envío de notifica
 
 - **Backend:** PHP 8+
 - **Frontend:** HTML5, CSS3, JavaScript
-- **Base de datos:** MySQL / MariaDB
+- **Base de datos:** MySQL
 - **Servidor:** Apache (XAMPP / LAMP)
 - **Librerías:** [PHPMailer](https://github.com/PHPMailer/PHPMailer) para el envío de correos.
 
