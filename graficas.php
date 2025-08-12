@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
 
-// Consulta SQL para contar las quejas por criticidad
+// Consulta SQL para contar las peticiones por criticidad
 $sql = "SELECT nombre, criticidad, COUNT(*) as cantidad FROM quejas GROUP BY nombre, criticidad";
 $result = $conn->query($sql);
 
@@ -87,7 +87,7 @@ $conn->close();
     var datos = {
         labels: <?php echo json_encode($labels); ?>,
         datasets: [{
-            label: 'Criticidad de Quejas',
+            label: 'Criticidad de peticiones',
             backgroundColor: <?php echo json_encode($backgroundColors); ?>,
             borderColor: 'rgba(0, 0, 0, 1)',
             borderWidth: 1,

@@ -3,17 +3,18 @@
 
 <head>
     <title>Administrador</title>
-    <link rel="stylesheet" href="Administrador-style.css">
+    <link rel="stylesheet" href="css/administrador.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="img/Logo_Avance.png" type="image/jpg">
     <link rel="stylesheet" href="css/administrador.css">
 </head>
+
 <body>
     <div class="container">
         <div class="login-content">
             <!-- Opciones ocultas por defecto -->
             <div class="options" id="options">
-                <a href="quejas.php">Ver  quejas registradas</a>
+                <a href="peticiones.php">Ver incidentes registrados</a>
 
             </div>
 
@@ -22,17 +23,7 @@
         </div>
     </div>
 
-    <script>
-    // Función para alternar la visibilidad de las opciones
-    function toggleOptions() {
-        var options = document.getElementById('options');
-        if (options.style.display === 'block') {
-            options.style.display = 'none';
-        } else {
-            options.style.display = 'block';
-        }
-    }
-    </script>
+    <script src="js/administrador.js"></script>
 </body>
 
 </html>

@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo_remitente = 'diegomendoza2609@gmail.com';
 
     // Dirección de correo a la que se enviará la queja
-    $correo_destinatario = 'diegomendoza2609@gmail.com';
+    $correo_destinatario = 'auxsoporte@avancelegal.com.co';
 
     // Verifica si se han enviado los datos del formulario
     if (isset($_POST["nombre"]) && isset($_POST["cartera"]) && isset($_POST["queja"]) && isset($_POST["criticidad"])) {
@@ -92,7 +92,7 @@ try {
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
 
-    $mail->setFrom($correo_remitente, 'Sistema de Quejas');
+    $mail->setFrom($correo_remitente, 'Sistema de peticiones');
     $mail->addAddress($correo_destinatario);
     $mail->Subject = 'Nueva queja registrada';
     $mail->isHTML(true);
