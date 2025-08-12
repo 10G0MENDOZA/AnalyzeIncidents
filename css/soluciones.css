@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-   /* background: linear-gradient(159deg, #fff, #009688)!important;*/
+    /* background: linear-gradient(159deg, #fff, #009688)!important;*/
 }
 
 .soluciones-container {
@@ -60,23 +60,22 @@ h2 {
     color: #999;
 }
 
-.button-container {
-    text-align: center;
-    margin-top: 20px;
-}
 
-.soluciones-button {
-    background-color: #04CF9E;
-    color: #fff;
+
+button {
+    display: block;      
+    margin: 20px auto;    
+    background: #009688;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
     padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
     font-size: 18px;
     cursor: pointer;
     text-decoration: none;
-    transition: background-color 0.3s ease;
 }
 
-.soluciones-button:hover {
-    background-color: #00a67c;
+
+button:hover {
+    background-color: #003b41;
 }

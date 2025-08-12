@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <head>
         <meta charset='UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <title>Nueva queja registrada</title>
+        <title>Nuevo caso de soporte registrado</title>
         <style>
             /* Estilos globales */
             body {

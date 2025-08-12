@@ -15,6 +15,7 @@
             <!-- Opciones ocultas por defecto -->
             <div class="options" id="options">
                 <a href="peticiones.php">Ver incidentes registrados</a>
+                <a href="soluciones.php">Ver Soluciones Registradas</a>
 
             </div>
 

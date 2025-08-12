@@ -7,9 +7,10 @@ require_once("bd.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['usuario']) && isset($_POST['contrasena'])) {
 
-    $usuario = trim(htmlspecialchars($_POST['usuario']));
+    $usuario = trim($_POST['usuario']);
     $contrasena = trim($_POST['contrasena']);
 
+    // Preparar consulta
     $sql = $conexion->prepare("SELECT contrasena FROM administradores WHERE usuario = ?");
     if (!$sql) {
         die("Error al preparar la consulta: " . $conexion->error);
@@ -17,19 +18,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['usuario']) && isset($_
 
     $sql->bind_param("s", $usuario);
     $sql->execute();
-    $sql->bind_result($hashAlmacenado);
-    $sql->fetch();
+    $resultado = $sql->get_result();
 
-    if ($hashAlmacenado && password_verify($contrasena, $hashAlmacenado)) {
-        session_start();
-        $_SESSION['usuario'] = $usuario;
-        header("Location: administrador.php");
-        exit;
+    if ($resultado && $resultado->num_rows === 1) {
+        $fila = $resultado->fetch_assoc();
+        $hashGuardado = $fila['contrasena'];
+
+        if (password_verify($contrasena, $hashGuardado)) {
+            header("Location: administrador.php");
+            exit();
+        } else {
+            echo "❌ Contraseña incorrecta.";
+        }
     } else {
-        echo "Usuario o contraseña incorrectos.";
+        echo "❌ El usuario no existe.";
     }
 
     $sql->close();
+    $conexion->close();
+
+} else {
+    echo "⚠️ Datos incompletos.";
 }
-$conexion->close();
 ?>
