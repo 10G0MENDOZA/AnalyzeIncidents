@@ -7,6 +7,7 @@
     <title>Vista con dos mitades</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="img/Logo_Avance.png" type="image/png">
 </head>
 
 <body>

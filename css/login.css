@@ -1,18 +1,24 @@
 /* La clase principal que organiza todo */
 .container {
-  display: flex;              /* Divide en columnas (flexbox) */
-  height: 100vh;              /* Toda la altura de la pantalla */
+  display: flex;
+  /* Divide en columnas (flexbox) */
+  height: 100vh;
+  /* Toda la altura de la pantalla */
 }
 
 /* Mitad izquierda */
 .izquierda {
-  flex: 1;                    /* Ocupa el 50% */
-  background-color: #009688;  /* Color de fondo (puedes cambiarlo) */
+  flex: 1;
+  /* Ocupa el 50% */
+  background-color: #009688;
   color: white;
-  display: flex;              /* Para centrar el contenido */
-  flex-direction: column;     
-  justify-content: center;    /* Centrado vertical */
-  align-items: center;        /* Centrado horizontal */
+  display: flex;
+  /* Para centrar el contenido */
+  flex-direction: column;
+  justify-content: center;
+  /* Centrado vertical */
+  align-items: center;
+  /* Centrado horizontal */
   text-align: center;
   padding: 20px;
   border-radius: 10px;
@@ -20,12 +26,13 @@
 
 /* Mitad derecha */
 .derecha {
-  flex: 1;                    /* Ocupa el otro 50% */
+  flex: 1;
+  /* Ocupa el otro 50% */
   background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
-  justify-content: center;    
-  align-items: center;        
+  justify-content: center;
+  align-items: center;
   padding: 20px;
 }
 
@@ -38,14 +45,15 @@ form {
   max-width: 300px;
 }
 
-input, button {
+input,
+button {
   padding: 10px;
   border: none;
   border-radius: 5px;
 }
 
 button {
-  background-color:#009688;
+  background-color: #009688;
   color: white;
   cursor: pointer;
 }
