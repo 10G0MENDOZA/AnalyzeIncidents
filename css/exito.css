@@ -9,6 +9,7 @@ body {
     align-items: flex-start;
     /* Ajustar al inicio verticalmente */
     min-height: 100vh;
+    margin: 70px;
 }
 
 .mensaje-exito {
@@ -17,7 +18,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 500px;
-    background: rgb(84, 36, 214);
+    background:  #009688;
     border-radius: 10px;
 }
 
@@ -47,5 +48,5 @@ body {
 
 
 .mensaje-exito a:hover {
-    color: #550bdd;
+    color: #009688;
 }

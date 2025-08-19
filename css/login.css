@@ -1,67 +1,51 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: url('../img/Logo_Avance.png') no-repeat center center fixed;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* La clase principal que organiza todo */
+.container {
+  display: flex;              /* Divide en columnas (flexbox) */
+  height: 100vh;              /* Toda la altura de la pantalla */
 }
 
-.login-container {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
-    transition: opacity 0.5s ease;
+/* Mitad izquierda */
+.izquierda {
+  flex: 1;                    /* Ocupa el 50% */
+  background-color: #009688;  /* Color de fondo (puedes cambiarlo) */
+  color: white;
+  display: flex;              /* Para centrar el contenido */
+  flex-direction: column;     
+  justify-content: center;    /* Centrado vertical */
+  align-items: center;        /* Centrado horizontal */
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.login-container h2 {
-    margin-bottom: 20px;
-    color: #333;
+/* Mitad derecha */
+.derecha {
+  flex: 1;                    /* Ocupa el otro 50% */
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    
+  align-items: center;        
+  padding: 20px;
 }
 
-.login-container input[type="text"],
-.login-container input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    /* Añadido para bordes redondeados */
-    box-sizing: border-box;
-    font-size: 16px;
+/* Estilo del formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+  max-width: 300px;
 }
 
-.login-container input[type="submit"] {
-    width: 100%;
-    padding: 12px 20px;
-    background-color: #04CF9E;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s;
+input, button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
 }
 
-.login-container input[type="submit"]:hover {
-    background-color: #009688;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    /* Añadido efecto de sombra */
-}
-
-.login-container a {
-    color: #04CF9E;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.login-container a:hover {
-    text-decoration: underline;
+button {
+  background-color:#009688;
+  color: white;
+  cursor: pointer;
 }
