@@ -16,7 +16,7 @@
             <img src="img/mesa_ayuda.jpg" alt="imagen mesa de ayuda">
         </div>
         <div class="derecha">
-            <h2>Iniciar Sesión</h2>
+            <h2 id="maquina"></h2>
             <form action="procesar_login.php" method="post">
                 <div class="username">
                     <input type="text" name="usuario" placeholder="Ingrese su usuario" required>
@@ -28,11 +28,12 @@
                     <label>Contraseña</label>
                 </div>
 
-                <input type="submit" value="Enviar">
+                <input type="submit" value="Entrar">
             </form>
 
         </div>
     </div>
+    <script src="js/login.js"></script>
 </body>
 
 </html>

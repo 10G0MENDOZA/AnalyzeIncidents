@@ -1,11 +1,3 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['usuario'])) {
-    header('Location: login.php');
-}
-exit();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +13,7 @@ exit();
     <div class="registros-container">
         <h2>Registros de Soluciones</h2>
         <?php
-    require_once __DIR__ . '/../bd.php';
+        require_once __DIR__ . '/../bd.php';
 
 
 

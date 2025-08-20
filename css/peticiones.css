@@ -74,3 +74,22 @@ a:hover {
     border-radius: 5px;
     text-decoration: none;
 }
+
+.btn-bolver {
+    position: relative;
+    background-color: #04CF9E;
+    border: none;
+    height: 30px;
+    border-radius: 10px;
+    width: 5%;
+    top: 1px;
+    margin: 0 10px;
+}
+.btn-bolver a {
+    text-decoration: none;
+    color: white;
+}
+
+.btn-bolver:hover {
+    background: #007bff;
+}

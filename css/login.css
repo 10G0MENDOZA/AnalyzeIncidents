@@ -5,7 +5,7 @@
   height: 100vh;
   /* Toda la altura de la pantalla */
 
-  
+
   /* Mitad izquierda */
   .izquierda {
     flex: 1;
@@ -17,12 +17,12 @@
     flex-direction: column;
     justify-content: center;
     /* Centrado vertical */
-  align-items: center;
-  /* Centrado horizontal */
-  text-align: center;
-  padding: 20px;
-  border-radius: 10px;
-}
+    align-items: center;
+    /* Centrado horizontal */
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+  }
 }
 
 /* Mitad derecha */
@@ -58,25 +58,30 @@ button {
   color: white;
   cursor: pointer;
 }
+
 .username label {
-display: flex;
-flex-direction: column;
-gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
+
 .username input {
-  
+
   height: 70px;
   transition: .5s;
   border: none;
   outline: none;
   background: none;
 }
-.username input:focus,label,
-.username input:focus,label
-{
+
+.username input:focus,
+label,
+.username input:focus,
+label {
   top: -5px;
   color: purple;
 }
+
 input[type="submit"] {
   width: 100%;
   max-width: 100%;

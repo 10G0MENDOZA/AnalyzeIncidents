@@ -12,6 +12,7 @@
 <body>
     <div class="quejas-container">
         <h2>Lista de peticiones</h2>
+        <button class = "btn-bolver"><a href="administrador.php">Volver</a></button>
         <a href="graficas.php" class="graficas-button">Ver Gráficas</a>
         <div class="table-container">
             <table>
@@ -26,10 +27,7 @@
                 </thead>
                 <tbody>
                     <?php
-              require_once __DIR__ . '/../bd.php';
-
-
-
+                    require_once __DIR__ . '/../bd.php';
                     // Consulta SQL para seleccionar todas las quejas
                     $sql = "SELECT nombre, cartera, inconveniente, criticidad, fecha_creacion FROM quejas";
                     $result = $conexion->query($sql);
