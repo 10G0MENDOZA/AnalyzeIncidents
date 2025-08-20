@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <button class="btn-bolver"><a href="administrador.php">Volver</a></button>
     <div class="registros-container">
         <h2>Registros de Soluciones</h2>
         <?php
