@@ -13,7 +13,10 @@
 <body>
     <div class="container">
         <div class="izquierda">
-            <img src="img/mesa_ayuda.jpg" alt="imagen mesa de ayuda">
+            <video autoplay muted loop playsinline>
+                <source src="../video/video_fondo.mp4" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
         </div>
         <div class="derecha">
             <h2 id="maquina"></h2>
