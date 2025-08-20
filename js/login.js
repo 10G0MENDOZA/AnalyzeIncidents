@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let index = 0;
 
     // Bandera para saber si ya se escribió el texto (evita que se repita)
-    let yaEscrito = true;
+let yaEscrito = false;
 
     // Función que escribe letra por letra en el elemento destino
     function escribir() {
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach(entry => {
             // ⚠️ Aquí tienes un error: pusiste "FileSystemEntry.isInteresecting"
             // debería ser "entry.isIntersecting"
-            if (entry.isIntersecting && !yaEscrito) {
+          if (entry.isIntersecting && !yaEscrito) {
                 escribir();      // Llama a la función de escritura
                 yaEscrito = true; // Marca como ya escrito para que no se repita
             }
