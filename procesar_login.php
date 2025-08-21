@@ -1,13 +1,9 @@
 <?php
+session_start(); // Inicia la sesión para manejar los errores y redirecciones
 
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 require_once __DIR__ . '/../bd.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['usuario']) && isset($_POST['contrasena'])) {
-
     $usuario = trim($_POST['usuario']);
     $contrasena = trim($_POST['contrasena']);
 
@@ -26,18 +22,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['usuario']) && isset($_
         $hashGuardado = $fila['contrasena'];
 
         if (password_verify($contrasena, $hashGuardado)) {
+            // Si la contraseña es correcta, redirigimos al administrador
             header("Location: administrador.php");
             exit();
         } else {
-            echo "❌ Contraseña incorrecta.";
+            // Contraseña incorrecta
+            $_SESSION['error'] = "Contraseña incorrecta.";
         }
     } else {
-        echo "❌ El usuario no existe.";
+        // Usuario no encontrado
+        $_SESSION['error'] = "Usuario O contraseña Incorrecta.";
     }
 
-    $sql->close();
-    $conexion->close();
-
+    // Redirigir de vuelta al login con el mensaje de error
+    header("Location: login.php");
+    exit();
 } else {
     echo "⚠️ Datos incompletos.";
 }
