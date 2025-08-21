@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/login.css">
     <link rel="icon" href="img/Logo_Avance.png" type="image/png">
@@ -28,18 +30,21 @@
                     <label>Usuario</label>
                 </div>
 
-                <div class="username">
-                    <input type="password" name="contrasena" required>
-                    <i class='bxr  bx-lock'></i>
+                <div class="username" style="position: relative;">
+                    <input type="password" id="contrasena" name="contrasena" required>
+                    <i class="bx bx-lock"></i>
                     <label>Contraseña</label>
+                    <span class="toggle-password" onclick="togglePassword()">
+                        <i id="eyeIcon" class="bx bx-show"></i>
+                    </span>
                 </div>
-
                 <input type="submit" value="Entrar">
             </form>
 
         </div>
     </div>
     <script src="js/login.js"></script>
+    <script src="js/ver_contraseña.js"></script>
 </body>
 
 </html>

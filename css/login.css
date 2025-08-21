@@ -101,3 +101,15 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background: rgb(2, 150, 68);
 }
+
+
+/* Ícono ojo */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: red;
+  font-size: 20px;
+}
