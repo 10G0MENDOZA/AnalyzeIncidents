@@ -4,6 +4,7 @@
   /* Divide en columnas */
   height: 100vh;
   /* Toda la altura de la pantalla */
+
 }
 
 /* Mitad izquierda */
@@ -19,6 +20,10 @@
   /* Evita que el video se desborde */
 }
 
+#maquina {
+  text-align: center;
+}
+
 .izquierda video {
   width: 100%;
   height: 100%;
@@ -29,6 +34,7 @@
 
 /* Mitad derecha */
 .derecha {
+  position: relative;
   flex: 1;
   /* Ocupa el otro 50% */
   background: white;
@@ -37,8 +43,48 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
+  border-radius: 10px;
 }
 
+.username {
+  position: relative;
+  /* El label se posiciona respecto a este div */
+  margin: 30px 0;
+  border-bottom: 1px solid silver;
+}
+
+.username input {
+  height: 100px;
+  width: 50%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  ;
+  outline: none;
+  font-size: 16px;
+
+}
+
+.username label {
+  position: absolute;
+  /*  se posiciona dentro del div */
+  top: 50%;
+  /* mitad vertical */
+  left: 10px;
+  /* un poquito a la derecha */
+  transform: translateY(-50%);
+  /* lo centra bien verticalmente */
+  color: gray;
+  pointer-events: none;
+  /* para que no tape el input */
+  transition: .5s;
+}
+
+.username input:focus~label,
+.username input:focus~label {
+  color: purple;
+  top: 5px;
+}
 
 button {
   background-color: #009688;
@@ -47,13 +93,13 @@ button {
 }
 
 input[type="submit"] {
-  width: 100%;
-  max-width: 100%;
-  height: 50%;
+  position: absolute;
+  height: 30px;
   background: #009688;
   color: white;
   font-size: 16px;
-  margin: 30px 0;
-  border-radius: 10px;
   border: none;
+  width: 50%;
+  border-radius: 10px;
+  margin-left: -95px;
 }
