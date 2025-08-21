@@ -1,105 +1,103 @@
-/* La clase principal que organiza todo */
-.container {
-  display: flex;
-  /* Divide en columnas */
-  height: 100vh;
-  /* Toda la altura de la pantalla */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Mitad izquierda */
+body {
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+#maquina{
+  position: relative;
+  text-align: center;
+}
 .izquierda {
   flex: 1;
-  /* Ocupa el 50% */
-  background-color: #009688;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border-radius: 10px;
-  /* Evita que el video se desborde */
-}
-
-#maquina {
-  text-align: center;
 }
 
 .izquierda video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Hace que el video se ajuste como fondo */
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
-/* Mitad derecha */
 .derecha {
-  position: relative;
   flex: 1;
-  /* Ocupa el otro 50% */
-  background: white;
+  background: linear-gradient(159deg, #009688, white);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  border-radius: 10px;
+    border-radius: 20px;
 }
 
 .username {
   position: relative;
-  /* El label se posiciona respecto a este div */
   margin: 30px 0;
-  border-bottom: 1px solid silver;
+  width: 80%;
+  border-bottom: 1px solid rgb(13, 43, 212);
 }
 
 .username input {
-  height: 100px;
-  width: 50%;
+  width: 100%;
+  height: 40px;
   border: none;
   background: none;
-  cursor: pointer;
-  ;
   outline: none;
   font-size: 16px;
-
+  padding-left: 35px; /* espacio para el ícono */
 }
 
 .username label {
   position: absolute;
-  /*  se posiciona dentro del div */
   top: 50%;
-  /* mitad vertical */
-  left: 10px;
-  /* un poquito a la derecha */
+  left: 35px; /* ahora se alinea bien con el input */
   transform: translateY(-50%);
-  /* lo centra bien verticalmente */
   color: gray;
   pointer-events: none;
-  /* para que no tape el input */
   transition: .5s;
 }
 
 .username input:focus~label,
-.username input:focus~label {
+.username input:valid~label {
   color: purple;
-  top: 5px;
+  top: -5px;
+  font-size: 12px;
 }
 
-button {
-  background-color: #009688;
-  color: white;
-  cursor: pointer;
+.username i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  font-size: 20px;
 }
 
 input[type="submit"] {
-  position: absolute;
-  height: 30px;
+  margin-top: 20px;
+  height: 40px;
   background: #009688;
   color: white;
   font-size: 16px;
   border: none;
-  width: 50%;
+  width: 80%;
   border-radius: 10px;
-  margin-left: -95px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background: rgb(2, 150, 68);
 }

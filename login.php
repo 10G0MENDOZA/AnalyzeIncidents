@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/login.css">
     <link rel="icon" href="img/Logo_Avance.png" type="image/png">
 </head>
@@ -22,12 +24,13 @@
             <form action="procesar_login.php" method="post">
                 <div class="username">
                     <input type="text" name="usuario" required>
-
+                    <i class='bxr  bx-user'></i>
                     <label>Usuario</label>
                 </div>
 
                 <div class="username">
                     <input type="password" name="contrasena" required>
+                    <i class='bxr  bx-lock'></i>
                     <label>Contraseña</label>
                 </div>
 
