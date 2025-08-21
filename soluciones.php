@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
 </head>
 
 <body>
-     <button class="btn-bolver"><a href="administrador.php">Volver</a></button>
+    <button class="btn-bolver"><a href="administrador.php">Volver</a></button>
     <div class="soluciones-container">
         <?php
         ini_set('display_errors', 1);
@@ -19,8 +19,7 @@
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         require_once __DIR__ . '/../bd.php';
 
-
-
+        // Lógica para procesar las soluciones enviadas
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if (!empty($_POST["solucion"])) {
                 foreach ($_POST["solucion"] as $id => $solucion) {
@@ -36,20 +35,34 @@
 
         $sql = "SELECT id, nombre, inconveniente, solucion FROM quejas";
         $result = $conexion->query($sql);
-
+        $atendidos = true; // Asumimos que todos los problemas están atendidos por defecto
+        
         if ($result->num_rows > 0) {
             echo "<form method='POST'>";
+
             while ($row = $result->fetch_assoc()) {
-                echo "<div class='problema'>";
-                echo "<h3>" . htmlspecialchars($row["nombre"]) . "</h3>";
-                echo "<p>" . htmlspecialchars($row["inconveniente"]) . "</p>";
-                echo "<textarea name='solucion[" . $row["id"] . "]' class='solucion' placeholder='Escribe la solución aquí'>"
-                    . htmlspecialchars($row["solucion"] ?? "") . "</textarea>";
-                echo "<br><input type='checkbox' class='check-solucion'> Marcar como resuelto";
-                echo "</div>";
+                // Solo mostramos las quejas donde la solución está vacía
+                if (empty($row["solucion"])) {
+                    echo "<div class='problema'>";
+                    echo "<h3>" . htmlspecialchars($row["nombre"]) . "</h3>";
+                    echo "<p>" . htmlspecialchars($row["inconveniente"]) . "</p>";
+                    echo "<textarea name='solucion[" . $row["id"] . "]' class='solucion' placeholder='Escribe la solución aquí'>"
+                        . htmlspecialchars($row["solucion"] ?? "") . "</textarea>";
+                    echo "<br><input type='checkbox' class='check-solucion'> Marcar como resuelto";
+                    echo "</div>";
+
+                    // Si encontramos una queja sin resolver, cambiamos $atendidos a false
+                    $atendidos = false;
+                }
             }
-            echo "<button type='submit'>Enviar Soluciones</button>";
-            echo "</form>";
+
+            // Si hay problemas sin resolver, mostramos el botón "Enviar Soluciones"
+            if ($atendidos === true) {
+                echo "No Hay problemas por resolver tomate un fria";
+                
+            } else {
+                     echo "<button type='submit'>Enviar Soluciones</button>";
+            }
         } else {
             echo "<p>No hay problemas registrados.</p>";
         }

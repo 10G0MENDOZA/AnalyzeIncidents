@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['usuario']) && isset($_
         }
     } else {
         // Usuario no encontrado
-        $_SESSION['error'] = "Usuario O contraseña Incorrecta.";
+        $_SESSION['error'] = " ⚠️ Usuario O Contraseña Incorrecta.";
     }
 
     // Redirigir de vuelta al login con el mensaje de error
