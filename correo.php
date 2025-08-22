@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startups_erros', 1);
 error_reporting(E_ALL);
 
-// Cargar las clases de PHPMailer
+// Cargar  clases de PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
