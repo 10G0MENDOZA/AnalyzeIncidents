@@ -4,7 +4,7 @@ body {
     background-size: cover;
     font-family: Arial, sans-serif;
     display: flex;
-    background: linear-gradient(159deg, #fff, #009688);
+    background: linear-gradient(159deg, #009688, white);
     justify-content: center;
     align-items: flex-start;
     /* Ajustar al inicio verticalmente */

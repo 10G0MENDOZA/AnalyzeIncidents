@@ -17,6 +17,7 @@
                 <a href="peticiones.php">Ver incidentes registrados</a>
                 <a href="registros.php">Ver Soluciones Registradas</a>
                 <a href="cerrar_sesion.php">Cerrar Session</a>
+                <a href="crear_usuario.php">Cerrar Session</a>
             </div>
             <!-- Botón o ícono para mostrar opciones -->
             <button id="show-options-button" onclick="toggleOptions()"><i class='bx bx-down-arrow'></i></button>

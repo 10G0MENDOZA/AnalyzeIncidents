@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
             // Guardar en BD después de que el correo se envía
-           require_once __DIR__ . '/../bd.php';
+            require_once __DIR__ . '/../bd.php';
 
             $sql = "INSERT INTO quejas (nombre, cartera, inconveniente, criticidad, fecha_creacion)
             VALUES (?, ?, ?, ?, ?)";

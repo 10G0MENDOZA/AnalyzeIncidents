@@ -58,7 +58,7 @@ $conexion->close();
 </head>
 
 <body>
-    <button class="btn-bolver"><a href="administrador.php">Volver</a></button>
+    <button class="btn-bolver"><a href="peticiones.php">Volver</a></button>
     <!-- Contenedor de la gráfica -->
     <div class="graficas-container">
         <h2>Gráfica de Criticidad</h2>

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <button class="btn-bolver"><a href="administrador.php">Volver</a></button>
+    <button class="btn-bolver"><a href="graficas.php">Volver</a></button>
     <div class="soluciones-container">
         <?php
         ini_set('display_errors', 1);
@@ -59,9 +59,9 @@
             // Si hay problemas sin resolver, mostramos el botón "Enviar Soluciones"
             if ($atendidos === true) {
                 echo "No Hay problemas por resolver tomate un fria";
-                
+
             } else {
-                     echo "<button type='submit'>Enviar Soluciones</button>";
+                echo "<button type='submit'>Enviar Soluciones</button>";
             }
         } else {
             echo "<p>No hay problemas registrados.</p>";

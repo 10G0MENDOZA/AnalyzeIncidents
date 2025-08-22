@@ -1,0 +1,179 @@
+/* Elimina márgenes y relleno predeterminados del navegador */
+body {
+    margin: 0;
+    padding: 0;
+    /* Fondo degradado diagonal de color naranja a azul */
+    background: linear-gradient(159deg, #009688, white);
+    /* Tipo de letra general */
+    font-family: sans-serif;
+    /* Altura del cuerpo igual al alto de la pantalla */
+    height: 100vh;
+    /* Oculta el desbordamiento del contenido */
+    overflow: hidden;
+}
+
+/* Contenedor principal centrado */
+.container {
+    padding: 30px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    /* Centra el contenedor usando transformaciones */
+    transform: translate(-50%, -50%);
+    /* Ancho fijo */
+    width: 400px;
+    /* Fondo blanco para contraste */
+    background: white;
+    /* Bordes redondeados */
+    border-radius: 10px;
+
+}
+
+/* Título del formulario */
+.container h1 {
+    position: relative;
+    margin: 30px 0;
+    /* Centra el texto */
+    text-align: center;
+    /* Redondea solo la esquina inferior derecha */
+    border-radius: 0 0 20px 0;
+    /* Línea inferior separadora (hay un error tipográfico aquí) */
+    border-bottom: 1pxs solid silver;
+    /* ❌ '1pxs' debería ser '1px' */
+    top: -30px;
+}
+
+/* Contenido del formulario */
+.container form {
+    /* Relleno interior horizontal */
+    padding: 0 40px;
+    /* Asegura que el padding se incluya en el ancho */
+    box-sizing: border-box;
+}
+
+/* Contenedor para cada input */
+form .usuario {
+    /* Posicionamiento relativo para el label */
+    position: relative;
+    /* Margen vertical */
+    margin: 30px 0;
+    /* Línea inferior decorativa */
+    border-bottom: 2px solid silver;
+}
+
+/* Campos de texto y contraseña */
+.usuario input {
+    /* Ocupar todo el ancho disponible */
+    width: 100%;
+    /* Espacio horizontal dentro del input */
+    padding: 0 5px;
+    /* Altura del campo */
+    height: 70px;
+    /* Tamaño del texto */
+    font-size: 16px;
+    /* ❌ habías puesto '16 px' con espacio */
+    /* Sin bordes */
+    border: none;
+    /* Fondo transparente */
+    background: none;
+    /* Quita el borde azul al enfocar */
+    outline: none;
+}
+
+/* Etiquetas dentro del input */
+.usuario label {
+    /* Posicionamiento absoluto relativo al contenedor */
+    position: absolute;
+    /* Centrado vertical inicial */
+    top: 50%;
+    /* Alineado a la izquierda */
+    left: 5px;
+    /* Color gris claro */
+    color: #adadad;
+    /* Centrado vertical real */
+    transform: translateY(-50%);
+    /* Tamaño de letra */
+    font-size: 16px;
+    /* El label no puede ser clickeado */
+    pointer-events: none;
+    /* Transición suave para mover la etiqueta */
+    transition: .5s;
+}
+
+/* Efecto al enfocar el input: mueve el label hacia arriba y cambia color */
+.usuario input:focus~label,
+.userusuarioname input:focus~label {
+    top: -5px;
+    color: #6c3483;
+}
+
+/* Efecto de subrayado decorativo al enfocar input (aunque falta el elemento span) */
+.usuario input:focus~span::before,
+.usuario input:focus~span::before {
+    width: 100px;
+}
+
+/* Texto para recuperar contraseña */
+.recordar {
+    /* Margen negativo para subirlo un poco */
+    margin: -5px 0 20px 5px;
+    /* Color azul para indicar enlace */
+    color: blue;
+    /* Cursor cambia a mano al pasar encima */
+    cursor: pointer;
+}
+
+/* Subraya el texto al pasar el mouse */
+.recordar:hover {
+    text-decoration: underline;
+}
+
+/* Botón de envío del formulario */
+input[type="submit"] {
+    /* Ancho completo */
+    width: 100%;
+    /* Altura fija */
+    height: 50px;
+    /* Borde con color inicial */
+    border: 1px solid;
+    /* Fondo morado */
+    background: #009688;
+    /* ❌ Este valor es incorrecto: debería ser border-radius o padding */
+    border: 25px;
+    /* ⚠️ Esto no tiene efecto válido, puede corregirse */
+    /* Tamaño del texto */
+    font-size: 18px;
+    /* Texto en blanco */
+    color: white;
+    /* Cursor en forma de mano */
+    cursor: pointer;
+    /* Quita bordes al hacer clic */
+    outline: none;
+    margin: 30px 0;
+    border-radius: 10px;
+}
+
+input[type="submit"]:hover {
+    background: rgb(2, 150, 68);
+    /* Transición suave */
+    transition: .5s;
+}
+
+/* Sección para registrar cuenta */
+.registrarse {
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: black;
+}
+
+/* Enlace dentro del mensaje de registro */
+.registrarse a {
+    color: blue;
+    text-decoration: none;
+}
+
+/* Subraya al pasar el cursor sobre el enlace */
+.registrarse a:hover {
+    text-decoration: underline;
+}
