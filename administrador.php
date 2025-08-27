@@ -4,7 +4,6 @@
 <head>
     <title>Administrador</title>
     <link rel="stylesheet" href="css/administrador.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="img/Logo_Avance.png" type="image/jpg">
     <link rel="stylesheet" href="css/administrador.css">
 </head>
@@ -16,7 +15,6 @@
             <div class="options" id="options">
                 <a href="peticiones.php">Ver incidentes registrados</a>
                 <a href="registros.php">Ver Soluciones Registradas</a>
-                <a href="cerrar_sesion.php">Cerrar Session</a>
                 <a href="crear_usuario.php">Cerrar Session</a>
             </div>
             <!-- Botón o ícono para mostrar opciones -->
