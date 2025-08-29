@@ -18,17 +18,17 @@
             <div class="usuario">
                 <input type="text" name="usuario" required>
                 <label>Nombre de usuario</label>
-                <i class='bxr  bx-user'></i>
+                <i id="boxi" class='bxr  bx-user'></i>
             </div>
             <div class="usuario">
                 <input type="password" name="contrasena" required>
                 <label>Contraseña</label>
-                <i class='bxr  bx-lock'></i>
+                <i id="boxi" class='bxr  bx-lock'></i>
             </div>
             <div class="usuario">
                 <input type="email" name="correo" required>
                 <label>Correo electrónico</label>
-                <i class='bxr  bx-envelope-open'></i>
+                <i id="boxi" class='bxr  bx-envelope-open'></i>
             </div>
             <input type="submit" value="Enviar">
         </form>
