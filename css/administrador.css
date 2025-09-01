@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background: url('../img/Logo_Avance.png') no-repeat center center fixed;
+    background-size: cover;
 }
 
 .options {
@@ -35,8 +36,29 @@ body {
     left: 10px;
     background: rgba(18, 184, 170, 0.8);
     color: #fff;
-    padding: 10px 15px;
+    padding: 0.8rem 1.2rem;
     cursor: pointer;
     border: none;
     border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    #show-options-button {
+        top: 5px;
+        left: 5px;
+        padding: 8px;
+        padding: 8px 10px;
+    }
+
+    .options {
+        width: 80%;
+        left: 10%;
+    }
+}
+
+@media (max-width: 480px) {
+    .options a {
+        padding: 8px;
+        font-size: 14px;
+    }
 }

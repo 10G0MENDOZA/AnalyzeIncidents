@@ -5,7 +5,6 @@
     <title>Administrador</title>
     <link rel="stylesheet" href="css/administrador.css">
     <link rel="icon" href="img/Logo_Avance.png" type="image/jpg">
-    <link rel="stylesheet" href="css/administrador.css">
 </head>
 
 <body>
@@ -15,14 +14,17 @@
             <div class="options" id="options">
                 <a href="peticiones.php">Ver incidentes registrados</a>
                 <a href="registros.php">Ver Soluciones Registradas</a>
-                <a href="crear_usuario.php">Cerrar Session</a>
+                <a href="crear_usuario.php">Cerrar Sesión</a>
             </div>
-            <!-- Botón o ícono para mostrar opciones -->
-            <button id="show-options-button" onclick="toggleOptions()"><i class='bx bx-down-arrow'></i></button>
+
+            <nav id="navbar-links" class="navbar-links">
+                <button id="botn-menu" class="menu-toggle" onclick="toggleMenu(); Desaparecerfoto();">
+                    <img id="imagen-responsive" src="img/icons_menu.png" alt="Imagen" class="img-menu">
+                </button>
+            </nav>
         </div>
     </div>
-
-    <script src="js/administrador.js"></script>
+    <script src="js/ocultar.menu.js"></script>
 </body>
 
 </html>

@@ -48,9 +48,11 @@ canvas {
 .criticidad-critica {
     color: rgba(75, 192, 192, 1);
 }
+
 .peticiones-container {
     position: relative;
 }
+
 .graficas-button {
     position: absolute;
     top: 20px;
@@ -61,6 +63,7 @@ canvas {
     border-radius: 5px;
     text-decoration: none;
 }
+
 .btn-bolver {
     position: relative;
     background-color: #04CF9E;
@@ -72,6 +75,7 @@ canvas {
     margin: 0 10px;
     top: 30px;
 }
+
 .btn-bolver a {
     text-decoration: none;
     color: white;

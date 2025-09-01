@@ -14,6 +14,7 @@ require 'PHPMailer/SMTP.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Datos del remitente (tú)
     $correo_remitente = 'diegomendoza2609@gmail.com';
+    
 
     // Dirección de correo a la que se enviará la queja
     $correo_destinatario = 'auxsoporte@avancelegal.com.co';
@@ -126,3 +127,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+

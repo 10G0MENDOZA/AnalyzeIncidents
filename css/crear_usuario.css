@@ -183,3 +183,24 @@ input[type="submit"]:hover {
 .boxi {
     top: -40px;
 }
+
+.btn-bolver {
+    position: relative;
+    background-color: #04CF9E;
+    border: none;
+    height: 30px;
+    border-radius: 10px;
+    width: 5%;
+    top: 1px;
+    margin: 0 10px;
+    top: 30px;
+}
+
+.btn-bolver a {
+    text-decoration: none;
+    color: white;
+}
+
+.btn-bolver:hover {
+    background: #007bff;
+}

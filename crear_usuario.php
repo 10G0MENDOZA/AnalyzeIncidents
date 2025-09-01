@@ -12,6 +12,7 @@
 </head>
 
 <body>
+        <button class="btn-bolver"><a href="peticiones.php">Volver</a></button>
     <div class="container">
         <h1>Creación de Usuario</h1>
         <form action="procesar_usuario.php" method="post">

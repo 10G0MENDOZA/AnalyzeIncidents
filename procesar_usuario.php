@@ -23,11 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['usuario'], $_POST['co
     // Hashear la contraseña antes de guardar
     $contrasenaHasheada = password_hash($contrasena, PASSWORD_DEFAULT);
 
-    // Insertar en la BD
+    /// Insertar en la BD
     $sql = $conexion->prepare("INSERT INTO administradores (usuario, contrasena, correo) VALUES (?, ?, ?)");
     if (!$sql) {
         die("Error en la preparación de la consulta: " . $conexion->error);
     }
+
 
     $sql->bind_param("sss", $usuario, $contrasenaHasheada, $correo);
 
@@ -40,14 +41,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['usuario'], $_POST['co
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'diegomendoza2609@gmail.com';
-            $mail->Password = 'ulro qpzx vohx xktu';     
+            $mail->Password = 'ulro qpzx vohx xktu';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
             $mail->CharSet = 'UTF-8'; // 🔹 Asegurar codificación correcta en el correo
 
             $mail->setFrom('diegomendoza2609@gmail.com', 'Sistema AnalyzeIncidents');
-            $mail->addAddress($correo); 
+            $mail->addAddress($correo);
             $mail->Subject = '✅ Usuario creado con éxito';
             $mail->isHTML(true);
 
